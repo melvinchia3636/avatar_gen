@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@for $i from 0 through 4 {
+    .active-#{$i} {
+        left: #{$i*192 + 4}px;
+        width: 192px;
+        height: 57px
+    }
+}
