@@ -2,11 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;600&display=swap');
+
+@font-face {
+    font-family: "SFPro";
+    src: url(./assets/SFNS.ttf);
+}
+
+* {
+    font-family: "SFPro";
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
 @for $i from 0 through 4 {
     .active-#{$i} {
-        left: #{$i*192 + 4}px;
-        width: 192px;
-        height: 57px
+        left: #{$i*176 + 4}px;
+        width: 176px;
+        height: 40px
     }
 }
 
@@ -16,7 +28,12 @@
             left: 4px;
             top: #{$i*57 + 4}px;
             width: calc(100% - 8px);
-            height: 55px;
+            height: 38px;
         }
     }
+}
+
+code {
+    font-family: "Source Code Pro";
+    font-weight: 600;
 }
