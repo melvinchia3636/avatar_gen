@@ -12,8 +12,10 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-lottie": "^1.2.3",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
+    "react-svg-text": "^0.1.2",
     "sass": "^1.43.4",
     "seedrandom": "^3.0.5",
     "web-vitals": "^1.0.1"
@@ -23,12 +25,6 @@
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -46,15 +42,11 @@
     "autoprefixer": "^9.8.8",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^19.0.0",
-    "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.27.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "postcss": "^7.0.39",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
-  },
-  "resolutions": {
-    "eslint-plugin-react": "7.23.2"
   }
 }

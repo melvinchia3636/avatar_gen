@@ -3,7 +3,7 @@ import React from 'react';
 const APIAccess = function APIAccess() {
   return (
     <div className="w-full flex items-center justify-center p-12 text-gray-700">
-      <div className="w-1/2 tracking-wide">
+      <div className="w-full sm:w-3/4 lg:w-1/2 tracking-wide">
         <h1 className="font-bold text-5xl text-blue-500">Avatar Generator API</h1>
         <p className="mt-8">
           {/* eslint-disable-next-line max-len */}
@@ -41,10 +41,37 @@ const APIAccess = function APIAccess() {
               This parameters specifies the seed of the random number generator that ensures the uniqueness of generated avatars.
             </td>
           </tr>
+          <tr className="border-t border-gray-300">
+            <td className="p-4 bg-gray-100 font-code font-medium w-1/3">type</td>
+            <td className="p-4 w-2/3">
+              <span className="font-bold font-code mb-2 block">string</span>
+              {/* eslint-disable-next-line max-len */}
+              This parameters specifies the type of avatar to generate. Below is a list of possible values:
+              <ul className="ml-4 mt-3 list-disc">
+                <li><code>pixels</code></li>
+                <li><code>rings</code></li>
+                <li><code>bauhaus</code></li>
+              </ul>
+            </td>
+          </tr>
           <tr className="font-semibold bg-gray-100 border-b border-t border-gray-300">
             <td className="p-4" colSpan="2">Optional parameters</td>
           </tr>
-          <tr>
+          <tr className="border-t border-gray-300">
+            <td className="p-4 bg-gray-100 font-code font-medium w-1/3">size</td>
+            <td className="p-4 w-2/3">
+              <span className="font-bold font-code mb-2 block">number</span>
+              {/* eslint-disable-next-line max-len */}
+              this parameters specifies the size of the generated avatar, in
+              {' '}
+              <code>px</code>
+              . Default set to
+              {' '}
+              <code>128</code>
+              .
+            </td>
+          </tr>
+          <tr className="border-t border-gray-300">
             <td className="p-4 bg-gray-100 font-code font-medium w-1/3">border</td>
             <td className="p-4 w-2/3">
               <span className="font-bold font-code mb-2 block">string</span>
@@ -58,6 +85,14 @@ const APIAccess = function APIAccess() {
                 <li><code>edge</code></li>
                 <li><code>none</code></li>
               </ul>
+            </td>
+          </tr>
+          <tr className="border-t border-gray-300">
+            <td className="p-4 bg-gray-100 font-code font-medium w-1/3">palette</td>
+            <td className="p-4 w-2/3">
+              <span className="font-bold font-code mb-2 block">Array(5)</span>
+              {/* eslint-disable-next-line max-len */}
+              An array of color in form of hex value to specify the color palette to be used in avatar generation. A random color palette will be used by default.
             </td>
           </tr>
         </table>
