@@ -9,6 +9,7 @@ import Pixel from './variety/Pixel';
 import Ellipsis from './variety/Ellipsis';
 import Bauhaus from './variety/Bauhaus';
 import Letter from './variety/Letter';
+import Identicon from './variety/Identicon';
 
 const Main = function Main() {
   const [palette, setPalette] = useState();
@@ -55,12 +56,13 @@ const Main = function Main() {
     Ellipsis,
     Bauhaus,
     Letter,
+    Identicon,
   ];
 
   const bottomNav = [
     ['Changelog', './changelog'],
     ['API Access', './api-access'],
-    ['Blog', 'https://thecodeblog.net/blog'],
+    ['FAQ', 'https://thecodeblog.net/faq'],
     ['Contact', 'mailto: melvinchia623600@gmail.com'],
   ];
 
@@ -84,6 +86,7 @@ const Main = function Main() {
           <button type="button" onClick={() => setType(1)} className={`w-full sm:w-44 py-2 relative z-10 tracking-widest uppercase font-semibold ${type === 1 ? 'text-white' : 'text-gray-500'}`}>Rings</button>
           <button type="button" onClick={() => setType(2)} className={`w-full sm:w-44 py-2 relative z-10 tracking-widest uppercase font-semibold ${type === 2 ? 'text-white' : 'text-gray-500'}`}>Bauhaus</button>
           <button type="button" onClick={() => setType(3)} className={`w-full sm:w-44 py-2 relative z-10 tracking-widest uppercase font-semibold ${type === 3 ? 'text-white' : 'text-gray-500'}`}>Letter</button>
+          <button type="button" onClick={() => setType(4)} className={`w-full sm:w-44 py-2 relative z-10 tracking-widest uppercase font-semibold ${type === 4 ? 'text-white' : 'text-gray-500'}`}>Identicon</button>
           <div className={`absolute top-1 active-${type} bg-blue-500 rounded-md sm:rounded-full transition-all`} />
         </div>
         {palette?.length

@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        code: ['Source Code Pro'],
+        code: ['Source Code Pro !important'],
       },
     },
   },

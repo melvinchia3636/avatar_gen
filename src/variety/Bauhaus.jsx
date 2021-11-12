@@ -4,10 +4,7 @@ import PropTypes from 'prop-types';
 const Bauhaus = function Bauhaus({ pixels, palette, shuffledarr }) {
   return (
     <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="128" height="128">
-      <mask id="mask__bauhaus" maskUnits="userSpaceOnUse" x="0" y="0" width="80" height="80">
-        <rect width="80" height="80" rx="160" fill="white" />
-      </mask>
-      <g mask="url(#mask__bauhaus)">
+      <g>
         <rect width="80" height="80" fill={`rgb(${palette[shuffledarr[0]].join(',')})`} />
         <rect x={pixels[0][1]} y={pixels[1][1]} width="80" height="10" fill={`rgb(${palette[shuffledarr[1]].join(',')})`} transform={`translate(4 -4) rotate(${pixels[12][1]} 40 40)`} />
         <rect x={pixels[63][1]} y={pixels[62][1]} width="80" height="10" fill={`rgb(${palette[shuffledarr[4]].join(',')})`} transform={`translate(4 -4) rotate(${pixels[61][1]} 40 40)`} />

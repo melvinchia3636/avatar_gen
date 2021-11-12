@@ -1,6 +1,26 @@
 import React from 'react';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { ascetic } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const APIAccess = function APIAccess() {
+  const JSONPayloadData = {
+    seed: 'John Doe',
+    type: 'bauhaus',
+    size: 128,
+    border: 'full',
+    palette: ['#a31a2e', '#f99937', '#f0c663', '#6ea06b', '#26624e'],
+  };
+
+  const JSONResponseData = {
+    status: 200,
+    requestURL: 'https://avatar-gen.thecodeblog.net/api',
+    data: {
+      result: {
+        svg: '<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="128" height="128"><g><rect width="80" height="80" fill="rgb(159,8,32)"></rect><rect x="34" y="0" width="80" height="10" fill="rgb(244,190,90)" transform="translate(4 -4) rotate(28 40 40)"></rect><rect x="27" y="39" width="80" height="10" fill="rgb(109,160,101)" transform="translate(4 -4) rotate(48 40 40)"></rect><circle cx="47" cy="25" fill="rgb(9,92,61)" r="16" transform="translate(6 6)"></circle><line x1="56" y1="36" x2="4" y2="136" stroke-width="2" stroke="rgb(252,242,157)" transform="translate(-4 4) rotate(19 40 40)"></line><line x1="63" y1="46" x2="26" y2="107" stroke-width="2" stroke="rgb(109,160,101)" transform="translate(-4 4) rotate(59 40 40)"></line></g></svg>',
+      },
+    },
+  };
+
   return (
     <div className="w-full flex items-center justify-center p-12 text-gray-700">
       <div className="w-full sm:w-3/4 lg:w-1/2 tracking-wide">
@@ -28,7 +48,7 @@ const APIAccess = function APIAccess() {
             <svg className="text-gray-400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="1.6em" height="1.6em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M15 20H5V7c0-.55-.45-1-1-1s-1 .45-1 1v13c0 1.1.9 2 2 2h10c.55 0 1-.45 1-1s-.45-1-1-1zm5-4V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h9c1.1 0 2-.9 2-2zm-2 0H9V4h9v12z" fill="currentColor" /></svg>
           </button>
         </div>
-        <h2 className="w-full font-semibold text-2xl mt-8 mb-4">Request Parameters</h2>
+        <h2 className="w-full font-semibold text-2xl mt-8 mb-4">Request Payload</h2>
         <table className="w-full rounded-md overflow-hidden border border-gray-300">
           <tr className="font-semibold bg-gray-100 border-b border-gray-300">
             <td className="p-4" colSpan="2">Required parameters</td>
@@ -38,7 +58,7 @@ const APIAccess = function APIAccess() {
             <td className="p-4 w-2/3">
               <span className="font-bold font-code mb-2 block">string</span>
               {/* eslint-disable-next-line max-len */}
-              This parameters specifies the seed of the random number generator that ensures the uniqueness of generated avatars.
+              This parameters specifies seed of the random number generator that ensures the uniqueness of generated avatars.
             </td>
           </tr>
           <tr className="border-t border-gray-300">
@@ -51,6 +71,8 @@ const APIAccess = function APIAccess() {
                 <li><code>pixels</code></li>
                 <li><code>rings</code></li>
                 <li><code>bauhaus</code></li>
+                <li><code>letter</code></li>
+                <li><code>identicon</code></li>
               </ul>
             </td>
           </tr>
@@ -96,6 +118,38 @@ const APIAccess = function APIAccess() {
             </td>
           </tr>
         </table>
+        <h2 className="w-full font-semibold text-3xl mt-8 mb-4">Example</h2>
+        <p className="my-4">
+          {/* eslint-disable-next-line max-len */}
+          Let&#39;s say you want to generate an avatar for
+          {' '}
+          <span className="font-medium text-blue-500">John Doe</span>
+          {' '}
+          and pass in the payload below:
+        </p>
+        <pre className="bg-gray-100 w-full p-4 rounded-md shadow-md">
+          <SyntaxHighlighter language="javascript" style={ascetic} className="font-code font-normal" customStyle={{ backgroundColor: 'rgb(243, 244, 246)' }}>
+            {JSON.stringify(JSONPayloadData, null, '\t')}
+          </SyntaxHighlighter>
+        </pre>
+        <p className="my-4">
+          {/* eslint-disable-next-line max-len */}
+          The response for this request will look like:
+        </p>
+        <pre className="bg-gray-100 w-full p-4 rounded-md shadow-md">
+          <SyntaxHighlighter language="javascript" style={ascetic} className="font-code font-normal" customStyle={{ backgroundColor: 'rgb(243, 244, 246)' }}>
+            {JSON.stringify(JSONResponseData, null, '\t')}
+          </SyntaxHighlighter>
+        </pre>
+        <h2 className="w-full font-semibold text-3xl mt-8 mb-4">Support</h2>
+        <p className="my-4">
+          <span className="font-medium text-blue-500">Contact us</span>
+          {' '}
+          if you have any questions regarding our API service. Before that, please check out our
+          {' '}
+          <a href="../faq" className="font-medium text-blue-500">FAQ</a>
+          .
+        </p>
       </div>
     </div>
   );

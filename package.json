@@ -8,6 +8,8 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.24.0",
+    "crypto-js": "^4.1.1",
+    "minidenticons": "^0.1.11",
     "prop-type": "^0.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -16,6 +18,7 @@
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "react-svg-text": "^0.1.2",
+    "react-syntax-highlighter": "^15.4.4",
     "sass": "^1.43.4",
     "seedrandom": "^3.0.5",
     "web-vitals": "^1.0.1"
