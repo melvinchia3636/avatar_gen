@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Ellipsis = function Pixel({ pixels, palette }) {
+const Ellipsis = function Pixel({ pixels, palette, width }) {
   return (
-    <svg className="flex-shrink-0" width="128" height="128" viewBox="0 0 128 128">
+    <svg width={width} height={width} viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
       {['M64 0C28.6538 0 0 28.6538 0 64H128C128 28.6538 99.3462 0 64 0Z',
         'M64 9C33.6243 9 9 33.6243 9 64H119C119 33.6243 94.3757 9 64 9Z',
         'M64 18C38.5949 18 18 38.5949 18 64H110C110 38.5949 89.4051 18 64 18Z',
@@ -19,6 +19,7 @@ const Ellipsis = function Pixel({ pixels, palette }) {
 Ellipsis.propTypes = {
   pixels: PropTypes.arrayOf(PropTypes.number).isRequired,
   palette: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  width: PropTypes.number.isRequired,
 };
 
 export default Ellipsis;

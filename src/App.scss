@@ -24,6 +24,11 @@ body {
         width: 176px;
         height: 40px
     }
+
+    .history.active-#{$i} {
+        left: #{$i*144 + 4}px !important;
+        width: 144px !important;
+    }
 }
 
 @media screen and (max-width: 640px) {

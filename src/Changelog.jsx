@@ -53,6 +53,10 @@ const Changelog = function Changelog() {
             <b>Identicon</b>
             .
           </li>
+          <li>
+            Users are now able to look back to the results of their previous avatar
+            generations.
+          </li>
         </ul>
       </div>
     </div>

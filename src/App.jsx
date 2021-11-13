@@ -19,6 +19,7 @@ const Main = function Main() {
   const [shuffledarr, setShuffledArr] = useState();
   const [borderRadius, setBorderRadius] = useState(0);
   const [isGenerating, setGenerating] = useState(false);
+  const [history] = useState(JSON.parse(localStorage.getItem('history') || '') || []);
 
   const newPalette = () => {
     setGenerating(true);
@@ -35,9 +36,13 @@ const Main = function Main() {
 
   useEffect(() => {
     newPalette();
+    window.onbeforeunload = function beforeLeaving() {
+      localStorage.setItem('history', JSON.stringify(history));
+    };
   }, []);
 
   useEffect(() => {
+    if (!history.includes(seed)) history.push(seed);
     const rng = seedrandom(seed);
     setPixels(Array(64).fill().map(() => [Math.floor(rng() * 5), Math.floor(rng() * 64)]));
 
@@ -60,6 +65,7 @@ const Main = function Main() {
   ];
 
   const bottomNav = [
+    ['History', './history'],
     ['Changelog', './changelog'],
     ['API Access', './api-access'],
     ['FAQ', 'https://thecodeblog.net/faq'],
@@ -94,7 +100,13 @@ const Main = function Main() {
             const TypeComp = typeComponent[type];
             return (
               <div className={`overflow-hidden shadow-md w-32 h-32 flex items-center justify-center transition-all duration-300 ${borderRadiusMap[borderRadius]}`} style={{ backgroundColor: `rgb(${palette[pixels[32][0]].join(',')})` }}>
-                <TypeComp pixels={pixels} palette={palette} shuffledarr={shuffledarr} seed={seed} />
+                <TypeComp
+                  pixels={pixels}
+                  palette={palette}
+                  shuffledarr={shuffledarr}
+                  seed={seed}
+                  width={128}
+                />
               </div>
             );
           })()

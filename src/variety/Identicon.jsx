@@ -16,14 +16,14 @@ function pseudoFNV1a(str) {
     .reduce((hash, char) => ((hash ^ char.charCodeAt(0)) >>> 0) * FNV_PRIME, OFFSET_BASIS);
 }
 
-const identicon = function identicon(username, color) {
+const identicon = function identicon(username, color, width) {
   const hash = pseudoFNV1a(username);
   const rects = username ? [...Array(25).keys()]
     .map((i) => (hash % (16 - i % 15) < SQUARE_DENSITY
       ? <rect x={`${i > 14 ? 7 - ~~(i / 5) : ~~(i / 5)}`} y={`${i % 5}`} width="1" height="1" /> : ''))
     : [];
   return (
-    <svg viewBox="-1.5 -1.5 8 8" xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill={`${color}`}>
+    <svg viewBox="-1.5 -1.5 8 8" xmlns="http://www.w3.org/2000/svg" width={width} height={width} fill={`${color}`}>
       <rect x="-1.5" y="-1.5" width="100%" height="100%" fill="white" />
       {rects}
     </svg>
@@ -31,15 +31,16 @@ const identicon = function identicon(username, color) {
 };
 
 const Letter = function Letter({
-  seed, pixels, palette,
+  seed, pixels, palette, width,
 }) {
-  return identicon(seed, `rgb(${palette[pixels[0][0]].join(',')})`);
+  return identicon(seed, `rgb(${palette[pixels[0][0]].join(',')})`, width);
 };
 
 Letter.propTypes = {
   seed: PropTypes.string.isRequired,
   pixels: PropTypes.arrayOf(PropTypes.number).isRequired,
   palette: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.number)).isRequired,
+  width: PropTypes.number.isRequired,
 };
 
 export default Letter;

@@ -9,6 +9,7 @@ import {
 import Main from './App';
 import Changelog from './Changelog';
 import APIAccess from './APIAccess';
+import History from './History';
 
 ReactDOM.render(
   <Router>
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Route path="/" element={<Main />} />
       <Route path="/changelog" element={<Changelog />} />
       <Route path="/api-access" element={<APIAccess />} />
+      <Route path="/history" element={<History />} />
     </Routes>
   </Router>,
   document.getElementById('root'),
