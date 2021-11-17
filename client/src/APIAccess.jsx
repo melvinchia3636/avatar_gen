@@ -31,9 +31,15 @@ const APIAccess = function APIAccess() {
           <br />
           <br />
           {/* eslint-disable-next-line max-len */}
-          The API is free for personal and non-commercial use. If you&#39;re looking to use it in a commercial application, get in touch by email: support@thecodeblog.net
+          The API is free for personal and non-commercial use. If you&#39;re looking to use it in a commercial application, get in touch by email:
+          {' '}
+          <span className="font-medium text-blue-500">support@thecodeblog.net</span>
+          .
         </p>
-        <h2 className="w-full font-semibold text-3xl mt-8 mb-4">API Entrypoint</h2>
+        <div className="w-full flex justify-center">
+          <button className="text-white bg-blue-500 rounded-md py-3 mt-6 px-12 text-xl font-medium tracking-wider shadow-md hover:bg-blue-600 transition-all" type="button">Try it now</button>
+        </div>
+        <h2 className="w-full font-semibold text-3xl tracking-wide mt-8 mb-4">API Entrypoint</h2>
         <p className="my-4">
           {/* eslint-disable-next-line max-len */}
           A API endpoint is a base URL that specifies the network address of an API. One API might have multiple API endpoints. Here is the one and only API endpoint of Avatar Gen:
@@ -150,6 +156,9 @@ const APIAccess = function APIAccess() {
           <a href="../faq" className="font-medium text-blue-500">FAQ</a>
           .
         </p>
+      </div>
+      <div className="w-full h-screen bg-black bg-opacity-10 fixed left-0 top-0 flex items-center justify-center">
+        <div className="bg-white w-full rounded-xl shadow-xl m-24" style={{ height: 'calc(100vh - 8rem)' }} />
       </div>
     </div>
   );
