@@ -134,7 +134,7 @@ const Main = function Main() {
           </div>
         </div>
         <div className="w-full flex pb-2 justify-center gap-2 flex-wrap">
-          {JSON.parse(localStorage.getItem('history') || []).filter((e) => e).map((e) => (palette?.length
+          {JSON.parse(localStorage.getItem('history') || '[]').filter((e) => e).map((e) => (palette?.length
             ? (() => {
               const TypeComp = typeComponent[type];
               const { pixels, shuffledarr } = geterateShuffledArr(e);

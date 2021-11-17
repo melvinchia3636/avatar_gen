@@ -19,7 +19,7 @@ const Main = function Main() {
   const [shuffledarr, setShuffledArr] = useState();
   const [borderRadius, setBorderRadius] = useState(0);
   const [isGenerating, setGenerating] = useState(false);
-  const [history] = useState(JSON.parse(localStorage.getItem('history') || '') || []);
+  const [history] = useState(JSON.parse(localStorage.getItem('history') || '[]') || []);
 
   const newPalette = () => {
     setGenerating(true);
