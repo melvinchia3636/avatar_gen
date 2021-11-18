@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { ascetic } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const APIAccess = function APIAccess() {
+  const [testerOpen, setTesterOpen] = useState(false);
+
   const JSONPayloadData = {
     seed: 'John Doe',
     type: 'bauhaus',
@@ -15,9 +17,7 @@ const APIAccess = function APIAccess() {
     status: 200,
     requestURL: 'https://avatar-gen.thecodeblog.net/api',
     data: {
-      result: {
-        svg: '<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="128" height="128"><g><rect width="80" height="80" fill="rgb(159,8,32)"></rect><rect x="34" y="0" width="80" height="10" fill="rgb(244,190,90)" transform="translate(4 -4) rotate(28 40 40)"></rect><rect x="27" y="39" width="80" height="10" fill="rgb(109,160,101)" transform="translate(4 -4) rotate(48 40 40)"></rect><circle cx="47" cy="25" fill="rgb(9,92,61)" r="16" transform="translate(6 6)"></circle><line x1="56" y1="36" x2="4" y2="136" stroke-width="2" stroke="rgb(252,242,157)" transform="translate(-4 4) rotate(19 40 40)"></line><line x1="63" y1="46" x2="26" y2="107" stroke-width="2" stroke="rgb(109,160,101)" transform="translate(-4 4) rotate(59 40 40)"></line></g></svg>',
-      },
+      result: '<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" width="128" height="128"><g><rect width="80" height="80" fill="rgb(159,8,32)"></rect><rect x="34" y="0" width="80" height="10" fill="rgb(244,190,90)" transform="translate(4 -4) rotate(28 40 40)"></rect><rect x="27" y="39" width="80" height="10" fill="rgb(109,160,101)" transform="translate(4 -4) rotate(48 40 40)"></rect><circle cx="47" cy="25" fill="rgb(9,92,61)" r="16" transform="translate(6 6)"></circle><line x1="56" y1="36" x2="4" y2="136" stroke-width="2" stroke="rgb(252,242,157)" transform="translate(-4 4) rotate(19 40 40)"></line><line x1="63" y1="46" x2="26" y2="107" stroke-width="2" stroke="rgb(109,160,101)" transform="translate(-4 4) rotate(59 40 40)"></line></g></svg>',
     },
   };
 
@@ -37,7 +37,7 @@ const APIAccess = function APIAccess() {
           .
         </p>
         <div className="w-full flex justify-center">
-          <button className="text-white bg-blue-500 rounded-md py-3 mt-6 px-12 text-xl font-medium tracking-wider shadow-md hover:bg-blue-600 transition-all" type="button">Try it now</button>
+          <button className="text-white bg-blue-500 rounded-md py-3 mt-6 px-12 text-xl font-medium tracking-wider shadow-md hover:bg-blue-600 transition-all" type="button" onClick={() => setTesterOpen(true)}>Try it now</button>
         </div>
         <h2 className="w-full font-semibold text-3xl tracking-wide mt-8 mb-4">API Entrypoint</h2>
         <p className="my-4">
@@ -100,22 +100,6 @@ const APIAccess = function APIAccess() {
             </td>
           </tr>
           <tr className="border-t border-gray-300">
-            <td className="p-4 bg-gray-100 font-code font-medium w-1/3">border</td>
-            <td className="p-4 w-2/3">
-              <span className="font-bold font-code mb-2 block">string</span>
-              {/* eslint-disable-next-line max-len */}
-              This parameters specified the border radius of the generated avatar. Default set to
-              {' '}
-              <code>full</code>
-              . Below are the list of valid values:
-              <ul className="ml-4 mt-3 list-disc">
-                <li><code>full</code></li>
-                <li><code>edge</code></li>
-                <li><code>none</code></li>
-              </ul>
-            </td>
-          </tr>
-          <tr className="border-t border-gray-300">
             <td className="p-4 bg-gray-100 font-code font-medium w-1/3">palette</td>
             <td className="p-4 w-2/3">
               <span className="font-bold font-code mb-2 block">Array(5)</span>
@@ -157,8 +141,17 @@ const APIAccess = function APIAccess() {
           .
         </p>
       </div>
-      <div className="w-full h-screen bg-black bg-opacity-10 fixed left-0 top-0 flex items-center justify-center">
-        <div className="bg-white w-full rounded-xl shadow-xl m-24" style={{ height: 'calc(100vh - 8rem)' }} />
+      <div className={`w-full ${testerOpen ? 'h-screen bg-darktransparent' : 'h-0 opacity-0 bg-transparent'} fixed left-0 top-0 overflow-hidden duration-300 transition-colors flex items-center justify-center`}>
+        <div className={`bg-white w-full rounded-xl transition-all relative p-8 shadow-xl m-24 duration-300 transform ${testerOpen ? 'translate-y-0' : 'translate-y-full'}`} style={{ height: 'calc(100vh - 8rem)' }}>
+          <button type="button" className="absolute top-8 right-7" onClick={() => setTesterOpen(false)}>
+            <svg xmlns="http://www.w3.org/2000/svg" ariaHidden="true" role="img" width="1.6em" height="1.6em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+              <g fill="none" stroke="#D1D5DB" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 6L6 18" />
+                <path d="M6 6l12 12" />
+              </g>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,9 @@
 const express = require('express');
 const axios = require('axios');
 
+const getRandom = require('./getRandom');
+const Pixels = require('./Pixels');
+
 const app = express();
 const port = 3001;
 
@@ -22,8 +25,7 @@ app.get('/api', async (req, res) => {
   };
 
   const {
-    // eslint-disable-next-line no-unused-vars
-    seed, type, size, border, palette,
+    seed, type, size, palette,
   } = req.query;
 
   const raise = (err) => {
@@ -46,11 +48,6 @@ app.get('/api', async (req, res) => {
   // eslint-disable-next-line no-restricted-globals
   if (size && isNaN(size)) {
     raise('Params "size" must be a number');
-    return;
-  }
-
-  if (border && !['rounded', 'edge', 'none'].includes(border)) {
-    raise('Params "border" must be specified to one of "rounded", "edge", and "none"');
     return;
   }
 
@@ -85,11 +82,16 @@ app.get('/api', async (req, res) => {
       },
     });
 
-    // eslint-disable-next-line no-unused-vars
-    finalPalette = request.data;
+    finalPalette = request.data.result;
   }
 
-  baseResponseBody.data = finalPalette;
+  const { pixels, shuffledArr } = getRandom(seed);
+
+  baseResponseBody.data = {};
+  // eslint-disable-next-line no-console
+  baseResponseBody.data.result = Pixels({
+    seed, pixels, shuffledArr, size, finalPalette,
+  });
 
   res.send(baseResponseBody);
 });

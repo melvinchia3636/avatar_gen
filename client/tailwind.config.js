@@ -6,10 +6,14 @@ module.exports = {
       fontFamily: {
         code: ['Source Code Pro !important'],
       },
+      colors: {
+        darktransparent: 'rgba(0, 0, 0, .1)',
+      },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+    },
   },
   plugins: [],
 };
