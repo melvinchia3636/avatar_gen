@@ -5,6 +5,14 @@ import { ascetic } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 const APIAccess = function APIAccess() {
   const [testerOpen, setTesterOpen] = useState(false);
 
+  const bottomNav = [
+    ['History', './history'],
+    ['Changelog', './changelog'],
+    ['API Access', './api-access'],
+    ['FAQ', 'https://thecodeblog.net/faq'],
+    ['Contact', 'mailto: melvinchia623600@gmail.com'],
+  ];
+
   const JSONPayloadData = {
     seed: 'John Doe',
     type: 'bauhaus',
@@ -22,7 +30,7 @@ const APIAccess = function APIAccess() {
   };
 
   return (
-    <div className="w-full flex items-center justify-center p-12 text-gray-700">
+    <div className="w-full flex items-center justify-center flex-col p-12 pb-0 text-gray-700">
       <div className="w-full sm:w-3/4 lg:w-1/2 tracking-wide">
         <h1 className="font-bold text-5xl text-blue-500">Avatar Generator API</h1>
         <p className="mt-8">
@@ -142,7 +150,7 @@ const APIAccess = function APIAccess() {
         </p>
       </div>
       <div className={`w-full ${testerOpen ? 'h-screen bg-darktransparent' : 'h-0 opacity-0 bg-transparent'} fixed left-0 top-0 overflow-hidden duration-300 transition-colors flex items-center justify-center`}>
-        <div className={`bg-white w-full rounded-xl transition-all relative p-8 shadow-xl m-24 duration-300 transform ${testerOpen ? 'translate-y-0' : 'translate-y-full'}`} style={{ height: 'calc(100vh - 8rem)' }}>
+        <div className={`bg-white w-full rounded-xl flex items-center justify-center transition-all relative p-8 shadow-xl m-24 duration-300 transform ${testerOpen ? 'translate-y-0' : 'translate-y-full'}`} style={{ height: 'calc(100vh - 8rem)' }}>
           <button type="button" className="absolute top-8 right-7" onClick={() => setTesterOpen(false)}>
             <svg xmlns="http://www.w3.org/2000/svg" ariaHidden="true" role="img" width="1.6em" height="1.6em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
               <g fill="none" stroke="#D1D5DB" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -151,7 +159,16 @@ const APIAccess = function APIAccess() {
               </g>
             </svg>
           </button>
+          <p className="text-gray-300 text-6xl tracking-wide font-medium">Coming soon...</p>
         </div>
+      </div>
+      <div className="w-full flex justify-center gap-4 mb-4 mt-8">
+        {bottomNav.map(([e, l], i) => (
+          <>
+            {i !== 0 && '|'}
+            <a href={l} className="text-blue-500 transition-all hover:underline hover:text-blue-600">{e}</a>
+          </>
+        ))}
       </div>
     </div>
   );

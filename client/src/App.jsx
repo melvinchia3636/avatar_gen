@@ -85,7 +85,7 @@ const Main = function Main() {
           {' '}
           Generator
           {' '}
-          <span className="text-gray-400 text-sm tracking-widest lowercase">v1.1</span>
+          <span className="text-gray-400 text-sm tracking-widest lowercase">v1.2</span>
         </h1>
         <div className="flex flex-col sm:flex-row w-full sm:w-auto bg-gray-200 rounded-lg sm:rounded-full overflow-hidden mb-8 relative p-1 shadow-sm">
           <button type="button" onClick={() => setType(0)} className={`w-full sm:w-44 py-2 relative z-10 tracking-widest uppercase font-semibold ${type === 0 ? 'text-white' : 'text-gray-500'}`}>Pixels</button>

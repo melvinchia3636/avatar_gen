@@ -2,7 +2,11 @@ const express = require('express');
 const axios = require('axios');
 
 const getRandom = require('./getRandom');
-const Pixels = require('./Pixels');
+const Pixels = require('./variety/Pixels');
+const Bauhaus = require('./variety/Bauhaus');
+const Identicon = require('./variety/Identicon');
+const Ellipsis = require('./variety/Ellipsis');
+const Letter = require('./variety/Letter');
 
 const app = express();
 const port = 3001;
@@ -14,6 +18,14 @@ const hexToRgb = (hex) => {
     parseInt(result[2], 16),
     parseInt(result[3], 16),
   ] : null;
+};
+
+const typesMap = {
+  pixels: Pixels,
+  bauhaus: Bauhaus,
+  identicon: Identicon,
+  rings: Ellipsis,
+  letter: Letter,
 };
 
 app.get('/api', async (req, res) => {
@@ -40,7 +52,7 @@ app.get('/api', async (req, res) => {
     return;
   }
 
-  if (!['pixels', 'rings', 'bauhaus', 'letter', 'identicon'].includes(type)) {
+  if (!['pixels', 'rings', 'bauhaus', 'letter', 'identicon'].includes(type.toLowerCase())) {
     raise('Params "type" must be specified to one of "pixels", "rings", "bauhaus", "letter", and "identicon"');
     return;
   }
@@ -89,7 +101,7 @@ app.get('/api', async (req, res) => {
 
   baseResponseBody.data = {};
   // eslint-disable-next-line no-console
-  baseResponseBody.data.result = Pixels({
+  baseResponseBody.data.result = typesMap[type.toLowerCase()]({
     seed, pixels, shuffledArr, size, finalPalette,
   });
 

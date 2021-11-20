@@ -1,8 +1,16 @@
 import React from 'react';
 
 const Changelog = function Changelog() {
+  const bottomNav = [
+    ['History', './history'],
+    ['Changelog', './changelog'],
+    ['API Access', './api-access'],
+    ['FAQ', 'https://thecodeblog.net/faq'],
+    ['Contact', 'mailto: melvinchia623600@gmail.com'],
+  ];
+
   return (
-    <div className="w-full px-12 sm:px-0 min-h-screen py-16 flex flex-col items-center gap-8 justify-center text-gray-700 tracking-wide">
+    <div className="w-full px-12 sm:px-0 min-h-screen pt-16 flex flex-col items-center gap-8 justify-center text-gray-700 tracking-wide">
       <h1 className="text-5xl text-blue-500 font-bold text-left w-full -ml-1 lg:text-center">Changelog</h1>
       <div className="w-full sm:w-3/4 lg:w-1/2">
         <h2 className="text-3xl font-semibold mb-2">v 1.0</h2>
@@ -36,7 +44,7 @@ const Changelog = function Changelog() {
         </ul>
       </div>
       <div className="w-full sm:w-3/4 lg:w-1/2">
-        <h2 className="text-3xl font-semibold mb-2">pre release 1.2</h2>
+        <h2 className="text-3xl font-semibold mb-2">v 1.2</h2>
         <ul className="list-disc ml-4">
           <li>Animations was added to handile long loadng time.</li>
           <li>API Documentation was added.</li>
@@ -60,7 +68,21 @@ const Changelog = function Changelog() {
           <li>
             Added padding to the seed input box.
           </li>
+          <li>
+            API was finished and deployed to
+            {' '}
+            <a href="https://avatar-gen.thecodeblog.net/api" className="text-blue-500 font-medium" target="_blank" rel="noreferrer">https://avatar-gen.thecodeblog.net/api</a>
+            .
+          </li>
         </ul>
+      </div>
+      <div className="w-full flex justify-center gap-4 mb-4 mt-8">
+        {bottomNav.map(([e, l], i) => (
+          <>
+            {i !== 0 && '|'}
+            <a href={l} className="text-blue-500 transition-all hover:underline hover:text-blue-600">{e}</a>
+          </>
+        ))}
       </div>
     </div>
   );
