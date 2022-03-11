@@ -74,15 +74,15 @@ const Main = function Main() {
   ];
 
   return (
-    <div className="w-full flex flex-col px-4 pt-8 pb-2 overflow-x-visible">
+    <div className="w-full flex flex-col px-4 pt-12 pb-2 overflow-x-visible">
       <div className="App w-full h-full overflow-hidden flex flex-col gap-6 items-center justify-center">
         <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js" />
         <h1 className="text-4xl uppercase font-semibold tracking-widest text-gray-500 text-left w-full px-8">
           Avatar Generation
           <span className="text-blue-500 normal-case"> History</span>
         </h1>
-        <div className="flex gap-8 mb-8 w-full items-center px-8 justify-between">
-          <div className="flex gap-8 items-center">
+        <div className="flex gap-8 mb-8 w-full items-center px-8 justify-between flex-col">
+          <div className="flex gap-8 items-center flex-col w-full">
             <div className="flex flex-col flex-shrink-0 sm:flex-row w-full sm:w-auto bg-gray-200 rounded-lg sm:rounded-full overflow-hidden relative p-1 shadow-sm">
               <button type="button" onClick={() => setType(0)} className={`w-full sm:w-36 py-2 relative z-10 tracking-widest uppercase font-semibold ${type === 0 ? 'text-white' : 'text-gray-500'}`}>Pixels</button>
               <button type="button" onClick={() => setType(1)} className={`w-full sm:w-36 py-2 relative z-10 tracking-widest uppercase font-semibold ${type === 1 ? 'text-white' : 'text-gray-500'}`}>Rings</button>
@@ -170,11 +170,11 @@ const Main = function Main() {
             )))}
         </div>
       </div>
-      <div className="w-full flex justify-center gap-4 mb-4 mt-8">
+      <div className="w-full flex flex-wrap justify-center gap-x-4 mb-4 mt-8">
         {bottomNav.map(([e, l], i) => (
           <>
             {i !== 0 && '|'}
-            <a href={l} className="text-blue-500 transition-all hover:underline hover:text-blue-600">{e}</a>
+            <a href={l} className="text-blue-500 transition-all hover:underline hover:text-blue-600 whitespace-nowrap">{e}</a>
           </>
         ))}
       </div>

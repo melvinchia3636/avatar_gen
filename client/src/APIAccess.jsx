@@ -162,11 +162,11 @@ const APIAccess = function APIAccess() {
           <p className="text-gray-300 text-6xl tracking-wide font-medium">Coming soon...</p>
         </div>
       </div>
-      <div className="w-full flex justify-center gap-4 mb-4 mt-8">
+      <div className="w-full flex flex-wrap justify-center gap-x-4 mb-4 mt-8">
         {bottomNav.map(([e, l], i) => (
           <>
             {i !== 0 && '|'}
-            <a href={l} className="text-blue-500 transition-all hover:underline hover:text-blue-600">{e}</a>
+            <a href={l} className="text-blue-500 transition-all hover:underline hover:text-blue-600 whitespace-nowrap">{e}</a>
           </>
         ))}
       </div>

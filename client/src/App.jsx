@@ -77,7 +77,7 @@ const Main = function Main() {
   ];
 
   return (
-    <div className="w-full h-screen flex flex-col px-4 overflow-x-visible">
+    <div className="w-full min-h-screen flex flex-col px-4 pt-12 overflow-x-visible">
       <div className="App w-full h-full overflow-hidden flex flex-col gap-6 items-center justify-center">
         <script src="//cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js" />
         <h1 className="text-4xl uppercase font-semibold tracking-widest text-gray-500 text-center">
@@ -87,7 +87,7 @@ const Main = function Main() {
           {' '}
           <span className="text-gray-400 text-sm tracking-widest lowercase">v1.2</span>
         </h1>
-        <div className="flex flex-col sm:flex-row w-full sm:w-auto bg-gray-200 rounded-lg sm:rounded-full overflow-hidden mb-8 relative p-1 shadow-sm">
+        <div className="flex flex-col flex-shrink-0 sm:flex-row w-full sm:w-auto bg-gray-200 rounded-lg sm:rounded-full overflow-hidden mb-8 relative p-1 shadow-sm">
           <button type="button" onClick={() => setType(0)} className={`w-full sm:w-44 py-2 relative z-10 tracking-widest uppercase font-semibold ${type === 0 ? 'text-white' : 'text-gray-500'}`}>Pixels</button>
           <button type="button" onClick={() => setType(1)} className={`w-full sm:w-44 py-2 relative z-10 tracking-widest uppercase font-semibold ${type === 1 ? 'text-white' : 'text-gray-500'}`}>Rings</button>
           <button type="button" onClick={() => setType(2)} className={`w-full sm:w-44 py-2 relative z-10 tracking-widest uppercase font-semibold ${type === 2 ? 'text-white' : 'text-gray-500'}`}>Bauhaus</button>
@@ -99,7 +99,7 @@ const Main = function Main() {
           ? (() => {
             const TypeComp = typeComponent[type];
             return (
-              <div className={`overflow-hidden shadow-md w-32 h-32 flex items-center justify-center transition-all duration-300 ${borderRadiusMap[borderRadius]}`} style={{ backgroundColor: `rgb(${palette[pixels[32][0]].join(',')})` }}>
+              <div className={`overflow-hidden flex-shrink-0 shadow-md w-32 h-32 flex items-center justify-center transition-all duration-300 ${borderRadiusMap[borderRadius]}`} style={{ backgroundColor: `rgb(${palette[pixels[32][0]].join(',')})` }}>
                 <TypeComp
                   pixels={pixels}
                   palette={palette}
@@ -162,11 +162,11 @@ const Main = function Main() {
             )}
         </button>
       </div>
-      <div className="w-full flex justify-center gap-4 mb-4">
+      <div className="w-full flex flex-wrap justify-center gap-x-4 mb-4 mt-8">
         {bottomNav.map(([e, l], i) => (
           <>
             {i !== 0 && '|'}
-            <a href={l} className="text-blue-500 transition-all hover:underline hover:text-blue-600">{e}</a>
+            <a href={l} className="text-blue-500 transition-all hover:underline hover:text-blue-600 whitespace-nowrap">{e}</a>
           </>
         ))}
       </div>

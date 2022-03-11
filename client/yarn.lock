@@ -3887,11 +3887,6 @@
     "randombytes" "^2.0.0"
     "randomfill" "^1.0.3"
 
-"crypto-js@^4.1.1":
-  "integrity" "sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw=="
-  "resolved" "https://registry.npmjs.org/crypto-js/-/crypto-js-4.1.1.tgz"
-  "version" "4.1.1"
-
 "crypto-random-string@^1.0.0":
   "integrity" "sha1-ojD2T1aDEOFJgAmUB5DsmVRbyn4="
   "resolved" "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-1.0.0.tgz"
@@ -7766,11 +7761,6 @@
     "normalize-url" "1.9.1"
     "schema-utils" "^1.0.0"
     "webpack-sources" "^1.1.0"
-
-"minidenticons@^0.1.11":
-  "integrity" "sha512-XrRgr7QCP7famua68D1bI2XDEIjCYivRL1kv+8pg7E++h4kOHaBR1dRt2wkv8YF9zneoF/sb+5nsrbaVX1IVZA=="
-  "resolved" "https://registry.npmjs.org/minidenticons/-/minidenticons-0.1.11.tgz"
-  "version" "0.1.11"
 
 "minimalistic-assert@^1.0.0", "minimalistic-assert@^1.0.1":
   "integrity" "sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A=="

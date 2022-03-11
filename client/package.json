@@ -8,8 +8,6 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.24.0",
-    "crypto-js": "^4.1.1",
-    "minidenticons": "^0.1.11",
     "prop-type": "^0.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -25,7 +23,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build",
+    "build": "GENERATE_SOURCEMAP=false craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
   },
